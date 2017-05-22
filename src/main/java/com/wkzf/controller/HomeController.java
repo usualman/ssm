@@ -1,6 +1,8 @@
 package com.wkzf.controller;
 
 
+import com.wkzf.service.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,6 +18,9 @@ import java.util.Map;
 @Controller
 public class HomeController {
 
+    @Autowired
+    TestService testService;
+
     @RequestMapping("/helloworld")
     public void hello(HttpServletRequest request, HttpServletResponse response) {
         try {
@@ -25,6 +30,7 @@ public class HomeController {
         }
 
         System.out.println("hello world");
+        testService.serviceQuery();
         return;
     }
 }
