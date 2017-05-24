@@ -12,7 +12,7 @@
                         http://www.springframework.org/schema/tx
                         http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!-- 自动扫描 -->
-    <context:component-scan base-package="com.wkzf" />
+    <!--<context:component-scan base-package="com.wkzf.dao" />-->
     <!-- 引入配置文件 -->
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -54,7 +54,7 @@
 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.qa.mock.dao" />
+        <property name="basePackage" value="com.wkzf.dao" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 

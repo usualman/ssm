@@ -11,34 +11,37 @@
 
     <context:annotation-config/>
 
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
 
     <context:component-scan base-package="com.wkzf"/>
 
-    <!-- middleware datasource  -->
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
-          p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://localhost/test"
-          p:username="root" p:password=""
-          p:initialSize="2"
-          p:maxActive="30"
-          p:maxIdle="10"
-          p:minIdle="3"
-          p:maxWait="30000"
-          p:removeAbandoned="true"
-          p:removeAbandonedTimeout="30"
-          p:validationQuery="SELECT 1" />
+    <!--&lt;!&ndash; middleware datasource  &ndash;&gt;-->
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"-->
+          <!--p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://localhost/test"-->
+          <!--p:username="root" p:password=""-->
+          <!--p:initialSize="2"-->
+          <!--p:maxActive="30"-->
+          <!--p:maxIdle="10"-->
+          <!--p:minIdle="3"-->
+          <!--p:maxWait="30000"-->
+          <!--p:removeAbandoned="true"-->
+          <!--p:removeAbandonedTimeout="30"-->
+          <!--p:validationQuery="SELECT 1" />-->
 
     <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
         <!--<property name="dataSource" ref="dataSource" />-->
         <!--<property name="configLocation" value="/WEB-INF/configuration.xml" />-->
     <!--</bean>-->
 
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.edw.springmybatis.mapper" />
-    </bean>
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="sql" />-->
+    <!--</bean>-->
 
-    <bean id="transactionManager"
-          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource" />
-    </bean>
+    <!--<bean id="transactionManager"-->
+          <!--class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource" />-->
+    <!--</bean>-->
+
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
 </beans>

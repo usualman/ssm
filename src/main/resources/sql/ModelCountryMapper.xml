@@ -1,40 +1,41 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wkzf.dao.ModelCountryMapper" >
-  <resultMap id="BaseResultMap" type="com.wkzf.model.ModelCountry" >
-    <result column="city" property="city" jdbcType="VARCHAR" />
-    <result column="road" property="road" jdbcType="CHAR" />
-    <result column="people" property="people" jdbcType="INTEGER" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wkzf.dao.ModelCountryMapper">
+  <resultMap id="BaseResultMap" type="com.wkzf.model.ModelCountry">
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="road" jdbcType="CHAR" property="road" />
+    <result column="people" jdbcType="INTEGER" property="people" />
   </resultMap>
-  <insert id="insert" parameterType="com.wkzf.model.ModelCountry" >
+  <insert id="insert" parameterType="com.wkzf.model.ModelCountry">
     insert into Country (city, road, people
       )
     values (#{city,jdbcType=VARCHAR}, #{road,jdbcType=CHAR}, #{people,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.wkzf.model.ModelCountry" >
+  <insert id="insertSelective" parameterType="com.wkzf.model.ModelCountry">
     insert into Country
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="city != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="city != null">
         city,
       </if>
-      <if test="road != null" >
+      <if test="road != null">
         road,
       </if>
-      <if test="people != null" >
+      <if test="people != null">
         people,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="city != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="city != null">
         #{city,jdbcType=VARCHAR},
       </if>
-      <if test="road != null" >
+      <if test="road != null">
         #{road,jdbcType=CHAR},
       </if>
-      <if test="people != null" >
+      <if test="people != null">
         #{people,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
+
 </mapper>

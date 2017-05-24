@@ -7,13 +7,13 @@
         <result column="people" property="people" jdbcType="INTEGER" />
     </resultMap>
     <insert id="insert" parameterType="com.wkzf.model.ModelCountry" >
-        insert into Country (city, road, people
+        insert into country (city, road, people
         )
         values (#{city,jdbcType=VARCHAR}, #{road,jdbcType=CHAR}, #{people,jdbcType=INTEGER}
         )
     </insert>
     <insert id="insertSelective" parameterType="com.wkzf.model.ModelCountry" >
-        insert into Country
+        insert into country
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="city != null" >
                 city,
@@ -37,6 +37,7 @@
             </if>
         </trim>
     </insert>
-    <select id="queryLineCount" resultType="java.lang.Integer"></select>
-    select count(*) from country
+    <select id="queryLineCount" resultType="java.lang.Integer">
+        select count(*) from country
+    </select>
 </mapper>
